@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-//const authRoutes = require('/routes/auth.routes');
-//const contaRoutes = require('/routes/conta.routes');
+const authRoutes = require('./routes/auth.routes');
+const contaRoutes = require('./routes/conta.routes');
 
 const app = express();
 
@@ -14,7 +14,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB conectado'))
   .catch(err => console.error('Erro MongoDB:', err));
 
-//app.use('/auth', authRoutes);
-//app.use('/contas', contaRoutes);
+app.use('/auth', authRoutes);
+app.use('/contas', contaRoutes);
 
 module.exports = app;
