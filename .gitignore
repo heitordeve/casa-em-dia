@@ -20,3 +20,6 @@ src/uploads/
 
 # Arquivos temporários
 *.swp
+
+yarn.lock
+package-lock.json
