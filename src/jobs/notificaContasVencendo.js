@@ -37,9 +37,14 @@ Sistema de Contas
 
     try {
       await sendEmail(user.email, '📅 Conta próxima do vencimento', texto);
+
+      // Marcar a conta como avisada
+      conta.avisoEnviado = true;
+      await conta.save();
+
       console.log(`📧 E-mail enviado para ${user.email} sobre a conta ${conta.nome}`);
     } catch (error) {
-      console.error(`Erro ao enviar e-mail para ${user.email}:`, error);
+      console.error(`❌ Erro ao enviar e-mail para ${user.email}:`, error);
     }
   }
 });
