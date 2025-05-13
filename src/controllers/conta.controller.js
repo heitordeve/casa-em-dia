@@ -1,4 +1,5 @@
 const Conta = require('../models/Conta');
+const { sendEmail } = require('../services/mailService');
 
 exports.criar = async (req, res) => {
   try {
